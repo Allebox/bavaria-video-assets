@@ -1,0 +1,36 @@
+name: Bavaria Build Scene Plan
+on:
+  workflow_dispatch:
+    inputs:
+      narration:
+        description: German narration/script for the test video
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Build scene plan from approved library
+        run: python scripts/build_scene_plan.py --script "${{ inputs.narration }}" --output scene-plan.json
+      - name: Verify zero-generation policy
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open("scene-plan.json",encoding="utf-8"))
+          assert p["policy"]["newGeneratedImages"] == 0
+          assert len(p["scenes"]) >= 1
+          for s in p["scenes"]:
+              assert s["assetPath"].startswith("assets/approved/")
+          print("SCENE PLAN PASS")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bavaria-scene-plan
+          path: scene-plan.json
+          if-no-files-found: error
