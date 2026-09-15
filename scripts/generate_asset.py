@@ -1,4 +1,4 @@
-import argparse, base64, json, os, pathlib, urllib.request
+import argparse, base64, json, os, pathlib, urllib.request, urllib.error
 from PIL import Image, ImageOps
 
 ap=argparse.ArgumentParser()
@@ -12,10 +12,24 @@ key=os.environ.get("OPENAI_API_KEY")
 if not key: raise SystemExit("OPENAI_API_KEY is missing")
 manifest=pathlib.Path("asset-manifest.json")
 data=json.loads(manifest.read_text(encoding="utf-8"))
-# Test/production guardrail: this worker generates exactly one image per invocation.
 payload=json.dumps({"model":"gpt-image-1-mini","prompt":a.prompt,"size":"1536x1024","quality":"low","n":1}).encode()
 req=urllib.request.Request("https://api.openai.com/v1/images/generations",data=payload,headers={"Authorization":f"Bearer {key}","Content-Type":"application/json"})
-with urllib.request.urlopen(req,timeout=300) as r: result=json.load(r)
+try:
+    with urllib.request.urlopen(req,timeout=300) as r:
+        result=json.load(r)
+except urllib.error.HTTPError as e:
+    body=e.read().decode("utf-8","replace")
+    request_id=e.headers.get("x-request-id","")
+    print(f"OpenAI API HTTP {e.code}")
+    if request_id: print(f"OpenAI request id: {request_id}")
+    try:
+        err=json.loads(body).get("error",{})
+        print("OpenAI error type:",err.get("type","unknown"))
+        print("OpenAI error code:",err.get("code","unknown"))
+        print("OpenAI error message:",err.get("message","unknown"))
+    except Exception:
+        print("OpenAI error body:",body[:2000])
+    raise SystemExit(1)
 raw=base64.b64decode(result["data"][0]["b64_json"])
 tmp=pathlib.Path("/tmp/generated.png"); tmp.write_bytes(raw)
 dst=pathlib.Path(f"assets/approved/{a.category}/{a.asset_id}.webp"); dst.parent.mkdir(parents=True,exist_ok=True)
