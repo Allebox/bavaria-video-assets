@@ -1,0 +1,351 @@
+{
+  "version": "1.0",
+  "source": "ChatGPT conversation upload batch 2026-09-15",
+  "status": "catalogued-awaiting-binary-transfer",
+  "note": "Duplicate uploads were excluded. Text-heavy/editorial images are reference or magazine-first. Clean small UI visuals are preferred reusable video assets.",
+  "assets": [
+    {
+      "id": "aftercare-followup-01",
+      "category": "aftercare",
+      "sourceName": "bavaria-dental-nachbetreuung..png",
+      "usage": "video",
+      "tags": [
+        "aftercare",
+        "follow-up",
+        "support",
+        "clean-ui"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "partner-clinic-01",
+      "category": "clinical",
+      "sourceName": "bavaria-dental-partnerklinik-budapest.png",
+      "usage": "video",
+      "tags": [
+        "partner-clinic",
+        "budapest",
+        "clinic",
+        "clean-ui"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "personal-contact-01",
+      "category": "human",
+      "sourceName": "bavaria-dental-persoenlicher-ansprechpartner.png",
+      "usage": "video",
+      "tags": [
+        "personal-support",
+        "contact",
+        "guidance",
+        "clean-ui"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "transparent-planning-01",
+      "category": "planning",
+      "sourceName": "bavaria-dental-transparente-planung.png",
+      "usage": "video",
+      "tags": [
+        "planning",
+        "transparent",
+        "documents",
+        "clean-ui"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "all-on4-eating-01",
+      "category": "human",
+      "sourceName": "All-on-4 – Wieder sicher zubeißen.png",
+      "usage": "both",
+      "tags": [
+        "all-on-4",
+        "eating",
+        "quality-of-life"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "all-on4-confidence-01",
+      "category": "human",
+      "sourceName": "Mehr Selbstvertrauen mit All-on-4.png",
+      "usage": "both",
+      "tags": [
+        "all-on-4",
+        "confidence",
+        "smile"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "all-on4-lifestyle-01",
+      "category": "human",
+      "sourceName": "Neue Lebensqualität mit All-on-4.png",
+      "usage": "both",
+      "tags": [
+        "all-on-4",
+        "quality-of-life",
+        "lifestyle"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "all-on4-smile-01",
+      "category": "human",
+      "sourceName": "Neues Lächeln mit All-on-4.png",
+      "usage": "both",
+      "tags": [
+        "all-on-4",
+        "smile",
+        "confidence"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "all-on4-food-01",
+      "category": "human",
+      "sourceName": "Wieder genießen mit All-on-4.png",
+      "usage": "both",
+      "tags": [
+        "all-on-4",
+        "food",
+        "quality-of-life"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "planning-hkp-01",
+      "category": "planning",
+      "sourceName": "bavaria-dental-zahnimplantate-budapest-01-HKP.webp.png",
+      "usage": "both",
+      "tags": [
+        "HKP",
+        "treatment-plan",
+        "planning"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "implant-longterm-01",
+      "category": "clinical",
+      "sourceName": "bavaria-dental-langfristige-loesung-zahnimplantate.png",
+      "usage": "both",
+      "tags": [
+        "implant",
+        "long-term",
+        "solution"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "treatment-planning-01",
+      "category": "planning",
+      "sourceName": "bavaria-dental-individuelle-behandlungsplanung.png",
+      "usage": "both",
+      "tags": [
+        "individual-planning",
+        "consultation"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "treatment-start-01",
+      "category": "clinical",
+      "sourceName": "bavaria-dental-ausgangssituation-zahnbehandlung-budapest.png",
+      "usage": "both",
+      "tags": [
+        "starting-point",
+        "treatment"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "treatment-goal-01",
+      "category": "clinical",
+      "sourceName": "bavaria-dental-behandlungsziel-zahnbehandlung-budapest.png",
+      "usage": "both",
+      "tags": [
+        "treatment-goal",
+        "result"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "before-after-01",
+      "category": "comparison",
+      "sourceName": "feste-zaehne-vorher-nachher-budapest-bavaria-dental-02-befora-after-dental-clinic.webp.png",
+      "usage": "reference",
+      "tags": [
+        "before-after",
+        "comparison"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "zirconia-metal-01",
+      "category": "comparison",
+      "sourceName": "Zirconium vs metal crowns comparison.png",
+      "usage": "both",
+      "tags": [
+        "zirconia",
+        "metal-ceramic",
+        "crowns",
+        "comparison"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "brand-logo-vidnoz-01",
+      "category": "brand",
+      "sourceName": "Bavaria vidnoz logo.png",
+      "usage": "both",
+      "tags": [
+        "logo",
+        "brand"
+      ],
+      "status": "approved"
+    },
+    {
+      "id": "second-opinion-cover-01",
+      "category": "editorial",
+      "sourceName": "zweite-meinung-zahnarzt-budapest-bavaria-dental-cover.png.png",
+      "usage": "magazine",
+      "tags": [
+        "second-opinion",
+        "cover"
+      ],
+      "status": "magazine-first"
+    },
+    {
+      "id": "patient-guide-cover-01",
+      "category": "editorial",
+      "sourceName": "zahnbehandlung-budapest-deutsche-patienten-bavaria-dental-cover.png.png",
+      "usage": "magazine",
+      "tags": [
+        "patient-guide",
+        "cover"
+      ],
+      "status": "magazine-first"
+    },
+    {
+      "id": "cost-plan-editorial-01",
+      "category": "editorial",
+      "sourceName": "zahnersatz-budapest-kostenplan-bavaria-dental-zahnklinik-zahnaerzte.webp(1).png",
+      "usage": "reference",
+      "tags": [
+        "cost-plan",
+        "poster",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "premium-treatment-editorial-01",
+      "category": "editorial",
+      "sourceName": "zahnimplantate-budapest-zahnarzt-bavaria-dental-07-zahnbehandlung-pemium.webp.png",
+      "usage": "reference",
+      "tags": [
+        "implant",
+        "premium",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "clinic-editorial-01",
+      "category": "editorial",
+      "sourceName": "deutsche-zahnklinik-budapest-bavaria-dental-04-beste zahnklinik.webp.png",
+      "usage": "reference",
+      "tags": [
+        "clinic",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "dentists-editorial-01",
+      "category": "editorial",
+      "sourceName": "zahnaerzte-budapest-bavaria-dental-05-zahnbehandlung.webp.png",
+      "usage": "reference",
+      "tags": [
+        "dentists",
+        "treatment",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "quality-editorial-01",
+      "category": "editorial",
+      "sourceName": "zahnbehandlung-budapest-deutsche-qualitaet-bavaria-dental-08-zahnaerzte-in-budapest.webp.png",
+      "usage": "reference",
+      "tags": [
+        "quality",
+        "dentists",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "guided-treatment-editorial-01",
+      "category": "editorial",
+      "sourceName": "zahnbehandlung-budapest-sicher-geplant-persoenlich-begleitet-bavaria-dental.webp.png",
+      "usage": "reference",
+      "tags": [
+        "planning",
+        "personal-support",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "all-on4-premium-editorial-01",
+      "category": "editorial",
+      "sourceName": "all-on-4-budapest-premium-zahnersatz-bavaria-dental-06-premium-zahnersatz.webp.png",
+      "usage": "reference",
+      "tags": [
+        "all-on-4",
+        "premium",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "all-on4-fixed-teeth-editorial-01",
+      "category": "editorial",
+      "sourceName": "all-on-4-kosten-budapest-bavaria-dental-03-feste-zaehne.webp.png",
+      "usage": "reference",
+      "tags": [
+        "all-on-4",
+        "fixed-teeth",
+        "text-heavy"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "fixed-teeth-editorial-01",
+      "category": "editorial",
+      "sourceName": "feste-zaehne-bavaria-dental-zahnklinik-budpest.png",
+      "usage": "reference",
+      "tags": [
+        "fixed-teeth",
+        "poster"
+      ],
+      "status": "reference"
+    },
+    {
+      "id": "new-teeth-editorial-01",
+      "category": "editorial",
+      "sourceName": "neu-zaehne-bavaria-dental-zahnklinik-budpest(1).png",
+      "usage": "reference",
+      "tags": [
+        "new-teeth",
+        "poster"
+      ],
+      "status": "reference"
+    }
+  ]
+}
