@@ -1,0 +1,54 @@
+name: Bavaria Cloud Image Generator
+on:
+  workflow_dispatch:
+    inputs:
+      asset_id:
+        description: Stable asset id
+        required: true
+        type: string
+      category:
+        description: Asset category
+        required: true
+        type: choice
+        options: [planning, clinical, human, aftercare, location, editorial, brand, comparison]
+      prompt:
+        description: Image generation prompt
+        required: true
+        type: string
+      tags:
+        description: Comma-separated tags
+        required: false
+        default: ""
+        type: string
+      usage:
+        description: video|magazine|both|reference
+        required: true
+        default: video
+        type: choice
+        options: [video, magazine, both, reference]
+permissions:
+  contents: write
+concurrency:
+  group: bavaria-cloud-image-generator
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install Pillow
+      - name: Generate one image with gpt-image-1-mini
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python scripts/generate_asset.py --asset-id "${{ inputs.asset_id }}" --category "${{ inputs.category }}" --prompt "${{ inputs.prompt }}" --tags "${{ inputs.tags }}" --usage "${{ inputs.usage }}"
+      - name: Commit generated asset
+        run: |
+          git config user.name "bavaria-video-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/approved asset-manifest.json
+          git commit -m "Generate Bavaria asset: ${{ inputs.asset_id }}"
+          git push
