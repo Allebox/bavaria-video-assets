@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "repository": "Allebox/bavaria-video-assets",
+  "rawBase": "https://raw.githubusercontent.com/Allebox/bavaria-video-assets/main/",
+  "policy": {
+    "selectionOrder": ["css-ux", "approved-library", "new-generation"],
+    "maxNewGeneratedImagesPerVideo": 2,
+    "testGenerationModel": "gpt-image-1-mini"
+  },
+  "categories": {
+    "planning": ["HKP","treatment-plan","transparent-planning","second-opinion"],
+    "clinical": ["implant","crown","all-on-4","treatment","clinic"],
+    "human": ["confidence","quality-of-life","eating","smile","personal-support"],
+    "aftercare": ["follow-up","support","long-term-care"],
+    "location": ["budapest-detail","travel"],
+    "editorial": ["magazine-cover","article-hero"],
+    "brand": ["logo"],
+    "comparison": ["zirconia","metal-ceramic","before-after"]
+  },
+  "usageRules": {
+    "posterOrTextHeavyAssets": "reference-or-crop-only",
+    "cleanVisualAssets": "preferred-for-video",
+    "articleHeroAssets": "magazine-first",
+    "duplicates": "store-once",
+    "partnerClinic": "do-not-imply-Bavaria-owned-clinic"
+  },
+  "assets": []
+}
