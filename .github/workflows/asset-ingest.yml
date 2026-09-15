@@ -1,0 +1,135 @@
+name: Bavaria Asset Ingest
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_url:
+        description: "HTTPS URL of the source image"
+        required: true
+        type: string
+      asset_id:
+        description: "Stable asset id, e.g. planning-hkp-01"
+        required: true
+        type: string
+      category:
+        description: "planning|clinical|human|aftercare|location|editorial|brand|comparison"
+        required: true
+        type: choice
+        options:
+          - planning
+          - clinical
+          - human
+          - aftercare
+          - location
+          - editorial
+          - brand
+          - comparison
+      tags:
+        description: "Comma-separated semantic tags"
+        required: false
+        default: ""
+        type: string
+      usage:
+        description: "video|magazine|both|reference"
+        required: true
+        default: "both"
+        type: choice
+        options:
+          - video
+          - magazine
+          - both
+          - reference
+
+permissions:
+  contents: write
+
+concurrency:
+  group: bavaria-asset-ingest
+  cancel-in-progress: false
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate inputs
+        shell: bash
+        env:
+          SOURCE_URL: ${{ inputs.source_url }}
+          ASSET_ID: ${{ inputs.asset_id }}
+        run: |
+          set -euo pipefail
+          [[ "$SOURCE_URL" =~ ^https:// ]] || { echo "source_url must use HTTPS"; exit 1; }
+          [[ "$ASSET_ID" =~ ^[a-z0-9][a-z0-9-]{2,79}$ ]] || { echo "Invalid asset_id"; exit 1; }
+
+      - name: Download and normalize asset
+        shell: bash
+        env:
+          SOURCE_URL: ${{ inputs.source_url }}
+          ASSET_ID: ${{ inputs.asset_id }}
+          CATEGORY: ${{ inputs.category }}
+        run: |
+          set -euo pipefail
+          mkdir -p "assets/approved/$CATEGORY"
+          curl --fail --location --retry 3 --max-time 120 "$SOURCE_URL" -o /tmp/source-image
+          python - <<'PY'
+          from PIL import Image, ImageOps
+          import os
+          src="/tmp/source-image"
+          dst=f"assets/approved/{os.environ['CATEGORY']}/{os.environ['ASSET_ID']}.webp"
+          im=Image.open(src)
+          im=ImageOps.exif_transpose(im)
+          if im.mode not in ("RGB","RGBA"):
+              im=im.convert("RGBA" if "transparency" in im.info else "RGB")
+          im.save(dst,"WEBP",quality=90,method=6)
+          print(dst, im.size)
+          PY
+
+      - name: Update manifest
+        shell: bash
+        env:
+          ASSET_ID: ${{ inputs.asset_id }}
+          CATEGORY: ${{ inputs.category }}
+          TAGS: ${{ inputs.tags }}
+          USAGE: ${{ inputs.usage }}
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, pathlib
+          p=pathlib.Path("asset-manifest.json")
+          data=json.loads(p.read_text(encoding="utf-8"))
+          aid=os.environ["ASSET_ID"]
+          cat=os.environ["CATEGORY"]
+          tags=[x.strip() for x in os.environ.get("TAGS","").split(",") if x.strip()]
+          item={
+            "id": aid,
+            "category": cat,
+            "path": f"assets/approved/{cat}/{aid}.webp",
+            "tags": tags,
+            "usage": os.environ["USAGE"],
+            "status": "approved"
+          }
+          assets=[a for a in data.get("assets",[]) if a.get("id") != aid]
+          assets.append(item)
+          assets.sort(key=lambda a:a["id"])
+          data["assets"]=assets
+          p.write_text(json.dumps(data,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+          PY
+
+      - name: Commit
+        shell: bash
+        env:
+          ASSET_ID: ${{ inputs.asset_id }}
+        run: |
+          set -euo pipefail
+          git config user.name "bavaria-video-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add assets/approved asset-manifest.json
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+          git commit -m "Ingest approved Bavaria asset: $ASSET_ID"
+          git push
