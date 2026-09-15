@@ -1,5 +1,5 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "repository": "Allebox/bavaria-video-assets",
   "rawBase": "https://raw.githubusercontent.com/Allebox/bavaria-video-assets/main/",
   "policy": {
@@ -8,14 +8,14 @@
     "testGenerationModel": "gpt-image-1-mini"
   },
   "categories": {
-    "planning": ["HKP","treatment-plan","transparent-planning","second-opinion"],
-    "clinical": ["implant","crown","all-on-4","treatment","clinic"],
-    "human": ["confidence","quality-of-life","eating","smile","personal-support"],
-    "aftercare": ["follow-up","support","long-term-care"],
-    "location": ["budapest-detail","travel"],
-    "editorial": ["magazine-cover","article-hero"],
+    "planning": ["HKP", "treatment-plan", "transparent-planning", "second-opinion"],
+    "clinical": ["implant", "crown", "all-on-4", "treatment", "clinic"],
+    "human": ["confidence", "quality-of-life", "eating", "smile", "personal-support"],
+    "aftercare": ["follow-up", "support", "long-term-care"],
+    "location": ["budapest-detail", "travel"],
+    "editorial": ["magazine-cover", "article-hero"],
     "brand": ["logo"],
-    "comparison": ["zirconia","metal-ceramic","before-after"]
+    "comparison": ["zirconia", "metal-ceramic", "before-after"]
   },
   "usageRules": {
     "posterOrTextHeavyAssets": "reference-or-crop-only",
@@ -24,5 +24,35 @@
     "duplicates": "store-once",
     "partnerClinic": "do-not-imply-Bavaria-owned-clinic"
   },
-  "assets": []
+  "assets": [
+    {"id":"aftercare-followup-01","category":"aftercare","path":"assets/approved/aftercare/aftercare-followup-01.webp","usage":"video","status":"approved","tags":["aftercare","follow-up","support","clean-ui"]},
+    {"id":"brand-logo-vidnoz-01","category":"brand","path":"assets/approved/brand/brand-logo-vidnoz-01.webp","usage":"both","status":"approved","tags":["logo","brand"]},
+    {"id":"implant-longterm-01","category":"clinical","path":"assets/approved/clinical/implant-longterm-01.webp","usage":"both","status":"approved","tags":["implant","long-term"]},
+    {"id":"partner-clinic-01","category":"clinical","path":"assets/approved/clinical/partner-clinic-01.webp","usage":"video","status":"approved","tags":["partner-clinic","budapest","clinic","clean-ui"]},
+    {"id":"treatment-goal-01","category":"clinical","path":"assets/approved/clinical/treatment-goal-01.webp","usage":"both","status":"approved","tags":["treatment","goal"]},
+    {"id":"treatment-start-01","category":"clinical","path":"assets/approved/clinical/treatment-start-01.webp","usage":"both","status":"approved","tags":["treatment","starting-point"]},
+    {"id":"before-after-01","category":"comparison","path":"assets/approved/comparison/before-after-01.webp","usage":"reference","status":"reference","tags":["before-after","comparison"]},
+    {"id":"zirconia-metal-01","category":"comparison","path":"assets/approved/comparison/zirconia-metal-01.webp","usage":"both","status":"approved","tags":["zirconia","metal-ceramic","comparison"]},
+    {"id":"all-on4-fixed-teeth-editorial-01","category":"editorial","path":"assets/approved/editorial/all-on4-fixed-teeth-editorial-01.webp","usage":"magazine","status":"reference","tags":["all-on-4","fixed-teeth","editorial"]},
+    {"id":"all-on4-premium-editorial-01","category":"editorial","path":"assets/approved/editorial/all-on4-premium-editorial-01.webp","usage":"magazine","status":"reference","tags":["all-on-4","premium","editorial"]},
+    {"id":"clinic-editorial-01","category":"editorial","path":"assets/approved/editorial/clinic-editorial-01.webp","usage":"magazine","status":"reference","tags":["clinic","editorial"]},
+    {"id":"cost-plan-editorial-01","category":"editorial","path":"assets/approved/editorial/cost-plan-editorial-01.webp","usage":"magazine","status":"reference","tags":["cost-plan","editorial"]},
+    {"id":"dentists-editorial-01","category":"editorial","path":"assets/approved/editorial/dentists-editorial-01.webp","usage":"magazine","status":"reference","tags":["dentists","editorial"]},
+    {"id":"fixed-teeth-editorial-01","category":"editorial","path":"assets/approved/editorial/fixed-teeth-editorial-01.webp","usage":"magazine","status":"reference","tags":["fixed-teeth","editorial"]},
+    {"id":"guided-treatment-editorial-01","category":"editorial","path":"assets/approved/editorial/guided-treatment-editorial-01.webp","usage":"magazine","status":"reference","tags":["guided-treatment","editorial"]},
+    {"id":"new-teeth-editorial-01","category":"editorial","path":"assets/approved/editorial/new-teeth-editorial-01.webp","usage":"magazine","status":"reference","tags":["new-teeth","editorial"]},
+    {"id":"patient-guide-cover-01","category":"editorial","path":"assets/approved/editorial/patient-guide-cover-01.webp","usage":"magazine","status":"reference","tags":["patient-guide","cover","editorial"]},
+    {"id":"premium-treatment-editorial-01","category":"editorial","path":"assets/approved/editorial/premium-treatment-editorial-01.webp","usage":"magazine","status":"reference","tags":["premium-treatment","editorial"]},
+    {"id":"quality-editorial-01","category":"editorial","path":"assets/approved/editorial/quality-editorial-01.webp","usage":"magazine","status":"reference","tags":["quality","editorial"]},
+    {"id":"second-opinion-cover-01","category":"editorial","path":"assets/approved/editorial/second-opinion-cover-01.webp","usage":"magazine","status":"reference","tags":["second-opinion","cover","editorial"]},
+    {"id":"all-on4-confidence-01","category":"human","path":"assets/approved/human/all-on4-confidence-01.webp","usage":"both","status":"approved","tags":["all-on-4","confidence","human"]},
+    {"id":"all-on4-eating-01","category":"human","path":"assets/approved/human/all-on4-eating-01.webp","usage":"both","status":"approved","tags":["all-on-4","eating","human"]},
+    {"id":"all-on4-food-01","category":"human","path":"assets/approved/human/all-on4-food-01.webp","usage":"both","status":"approved","tags":["all-on-4","food","human"]},
+    {"id":"all-on4-lifestyle-01","category":"human","path":"assets/approved/human/all-on4-lifestyle-01.webp","usage":"both","status":"approved","tags":["all-on-4","quality-of-life","human"]},
+    {"id":"all-on4-smile-01","category":"human","path":"assets/approved/human/all-on4-smile-01.webp","usage":"both","status":"approved","tags":["all-on-4","smile","human"]},
+    {"id":"personal-contact-01","category":"human","path":"assets/approved/human/personal-contact-01.webp","usage":"video","status":"approved","tags":["personal-contact","support","clean-ui"]},
+    {"id":"planning-hkp-01","category":"planning","path":"assets/approved/planning/planning-hkp-01.webp","usage":"both","status":"approved","tags":["HKP","planning"]},
+    {"id":"transparent-planning-01","category":"planning","path":"assets/approved/planning/transparent-planning-01.webp","usage":"video","status":"approved","tags":["transparent-planning","planning","clean-ui"]},
+    {"id":"treatment-planning-01","category":"planning","path":"assets/approved/planning/treatment-planning-01.webp","usage":"both","status":"approved","tags":["treatment-plan","planning"]}
+  ]
 }
