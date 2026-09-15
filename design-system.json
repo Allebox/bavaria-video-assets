@@ -1,0 +1,29 @@
+{
+  "version": "1.0",
+  "brand": "Bavaria Dental",
+  "videoPolicy": {
+    "designFirst": true,
+    "assetLibraryFirst": true,
+    "maxNewGeneratedImagesPerVideo": 2,
+    "testImageModel": "gpt-image-1-mini",
+    "imageIsSupportingAssetNotLayout": true
+  },
+  "colors": {
+    "textMain": "#0D1117",
+    "background": "#F3F1EB",
+    "panel": "#F9F9F9",
+    "gold": "#B6965E",
+    "darkGold": "#4E4028",
+    "legacySecondary": "#295970",
+    "legacySecondaryDefaultEnabled": false
+  },
+  "fonts": {"display":"Playfair Display","body":"Inter","optionalEditorial":"Cormorant"},
+  "videoPrinciples": [
+    "HyperFrames CSS/UX is the primary visual system.",
+    "Use typography, whitespace, gradients, cards, masks, lines, diagrams and motion before imagery.",
+    "Use zero images when a scene is stronger without one.",
+    "Never use a generated image as a complete advertisement layout.",
+    "Never bake headlines, CTA text or Bavaria UI into generated imagery.",
+    "Prefer reusable approved assets before generating a new image."
+  ]
+}
