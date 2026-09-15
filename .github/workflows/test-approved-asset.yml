@@ -1,0 +1,34 @@
+name: Bavaria Approved Asset Test
+on:
+  workflow_dispatch:
+    inputs:
+      asset_id:
+        description: Approved asset id from asset-manifest.json
+        required: true
+        default: treatment-planning-01
+        type: string
+permissions:
+  contents: read
+jobs:
+  test-approved-asset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Select approved library asset
+        run: python scripts/select_approved_asset.py --asset-id "${{ inputs.asset_id }}" --output "test-output/selected-asset.webp"
+      - name: Verify selected WebP
+        run: |
+          test -s test-output/selected-asset.webp
+          file test-output/selected-asset.webp
+          cat selected-asset.json
+      - name: Upload test output
+        uses: actions/upload-artifact@v4
+        with:
+          name: bavaria-approved-asset-test
+          path: |
+            test-output/selected-asset.webp
+            selected-asset.json
+          if-no-files-found: error
